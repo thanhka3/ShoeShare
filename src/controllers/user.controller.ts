@@ -1,4 +1,4 @@
-import { User } from "../models/User.model";
+import { User } from "../models/user.model";
 import BaseResponse from "../models/response/model.BaseResponse";
 import * as userCredentialsController from './userCredentials.controller';
 
