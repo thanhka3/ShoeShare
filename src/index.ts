@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 connect();
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 routes(app);
