@@ -20,7 +20,7 @@ export const createUser = async (req: any, res: any) => {
         });
 
     await User.find({ phone: req.body.phone, isDeleted: false })
-        .then((isPhoneExisted) => {
+        .then((isPhoneExisted: any) => {
             if (isPhoneExisted) {
                 baseResponse.setError('số điện thoại đã tồn tại');
                 return res.status(404).json(baseResponse.response);
@@ -41,7 +41,7 @@ export const createUser = async (req: any, res: any) => {
     await user.save();
 
     await User.findOne({ email: user.email, isDeleted: false, phone: user.phone })
-        .then(userCreated => {
+        .then((userCreated: any) => {
             res.json(userCreated);
         })
         .catch((err: any) => console.log(err));
