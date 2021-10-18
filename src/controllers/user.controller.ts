@@ -9,13 +9,13 @@ export const createUser = async (req: any, res: any) => {
         return res.status(401).json(baseResponse.response);
     }
     await User.find({ email: req.body.email, isDeleted: false })
-        .then((isEmailExisted) => {
+        .then((isEmailExisted: any) => {
             if (isEmailExisted) {
                 baseResponse.setError('email đã tồn tại');
                 return res.status(404).json(baseResponse.response);
             }
         })
-        .catch(err => {
+        .catch((err: any) => {
             console.log(err)
         });
 
@@ -26,7 +26,7 @@ export const createUser = async (req: any, res: any) => {
                 return res.status(404).json(baseResponse.response);
             }
         })
-        .catch(err => {
+        .catch((err: any) => {
             console.log(err)
         });
 
@@ -44,7 +44,7 @@ export const createUser = async (req: any, res: any) => {
         .then(userCreated => {
             res.json(userCreated);
         })
-        .catch(err => console.log(err));
+        .catch((err: any) => console.log(err));
     // if (userCreated) {
     //     userCredentialsController.createUserCredentials(userCreated.id, req.body.password);
     // }
